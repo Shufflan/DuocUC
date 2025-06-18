@@ -46,7 +46,23 @@ def turistas_por_mes(mes):
         
 
 def eliminar_turista():
-    pass
+    #Como no se pide usar parametros, dentro de la función le pedimos al usuario que ingrese el nombre
+    #Luego lo transformamos en lower y además borramos cualquier espacio que ponga.
+    nombre = input("Ingrese el nombre del turista a eliminar: ")
+    nombre = nombre.lower().replace(" ","") 
+    for turista in turistas:
+        #Buscamos la llave de turistas (turistas[llave]) y comparamos el valor (turistas[llave][valor])
+        #transformamos el primer valor (indice 0) a minusculas y sin espacios
+        nombreCambiado= turistas[turista][0].lower().replace(" ","")
+        if nombreCambiado == nombre:
+            #Si coinciden los nombres, se elimina LA LLAVE del diccionario.
+            #IMPORTANTE usar el break para parar cuando se encuentre el nombre.
+            turistas.pop(turista)
+            print("Turista eliminado con éxito.")
+            break
+        #Si el usuario no existe, mostraremos este mensaje.
+    if nombreCambiado != nombre:
+        print("Turista no eliminado, no se pudo encontrar.")
 
 
 
@@ -100,7 +116,7 @@ while True:
                     except ValueError:
                         print("Ingresa solo valores numéricos enteros.")
             case 3:
-                pass
+                eliminar_turista() 
             case 4:
                 print("Programa terminado...")
                 break
