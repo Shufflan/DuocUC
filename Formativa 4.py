@@ -13,10 +13,6 @@ turistas = {
     "011": ["Sofia Gomez", "Argentina", "07-04-2024"]
 }
 
-estadosUnidos = []
-argentina = []
-mexico = []
-brasil = []
 
 def turistas_por_pais(pais):
     for turista in pais.values():
@@ -28,10 +24,6 @@ def turistas_por_pais(pais):
             mexico.append(turista[0])
         elif turista[1] == "Brasil":
             brasil.append(turista[0])
-    print(f"Turistas de Estados Unidos: {estadosUnidos}")
-    print(f"Turistas de Argentina: {argentina}")
-    print(f"Turistas de México: {mexico}")
-    print(f"Turistas de Brasil: {brasil}")
 
 def turistas_por_mes(mes):
     pass
@@ -52,7 +44,31 @@ while True:
 
         match optUsuario:
             case 1:
+                estadosUnidos = []
+                argentina = []
+                mexico = []
+                brasil = []
                 turistas_por_pais(turistas)
+                try:
+                    opcionUsuario = input("Ingrese país a buscar: ")
+                    opcionUsuario = opcionUsuario.lower()
+                    opcionUsuario = opcionUsuario.replace("é", "e")
+                    opcionUsuario = opcionUsuario.replace(" ", "")
+                    
+                    match opcionUsuario:
+
+                        case "mexico":
+                            print(mexico)
+                        case "argentina":
+                            print(argentina)
+                        case "brasil":
+                            print(brasil)
+                        case "estadosunidos":
+                            print(estadosUnidos)
+                        case _:
+                            print("No hay turistas de ese país.")
+                except ValueError:
+                    print("Ingrese solo palabras o letras.")
             case 2:
                 pass
             case 3:
