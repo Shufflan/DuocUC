@@ -26,7 +26,24 @@ def turistas_por_pais(pais):
             brasil.append(turista[0])
 
 def turistas_por_mes(mes):
-    pass
+    total = len(turistas)
+    contador = 0
+    #Recorriendo los valores del diccionario con .values() //IMPORTANTE ESO
+    for turista in turistas.values():
+        #Acá accedemos directamente a la fecha que es la tercera posición, indice 2.
+        fecha = turista[2]
+        #Eliminamos los guiones, lo que deja la fecha en ["dd", "mm", "aaaa"] porque split busca el "-" y los separa desde ahí
+        fecha_partes = fecha.split("-")
+        #Accedemos al indice del mes, que sería la segunda posición, indice 1.
+        mesBuscado = int(fecha_partes[1])
+        #Si el mes que buscamos es igual al que existe, lo guardamos.
+        if int(mes) == mesBuscado:
+            contador += 1
+    if total == 0:
+        return 0
+    porcentaje = (contador/total) * 100
+    return porcentaje
+        
 
 def eliminar_turista():
     pass
@@ -70,7 +87,18 @@ while True:
                 except ValueError:
                     print("Ingrese solo palabras o letras.")
             case 2:
-                pass
+                while True:
+                    try:
+                        opcionUsuario = int(input("Ingrese el mes a buscar: "))
+                        porcentaje = turistas_por_mes(opcionUsuario)
+                        if opcionUsuario <= 12 and opcionUsuario >= 1:
+                            print(f"El número de turistas equivale al {int(porcentaje)}% del total")
+                            break
+                        else:
+                            print("Debe ingresar un valor entre 1 y 12. Inténtelo nuevamente.")
+                            continue
+                    except ValueError:
+                        print("Ingresa solo valores numéricos enteros.")
             case 3:
                 pass
             case 4:
