@@ -136,12 +136,9 @@ while True:
                 print("")
                 ver_canciones()
             case 2:
-                try:
                     artista = input("Ingrese el nombre del artista: ").lower().replace(" ","")
                     print("")
                     buscar_por_artista(artista)
-                except ValueError:
-                    print("Ingrese solo letras o palabras.")
             case 3:
                 titulo = input("Nombre de la canción: ")
                 artista = input("Nombre del artista: ")
