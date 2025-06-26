@@ -2,7 +2,7 @@ usuarios = []
 
 def ingresarUsuario():
     while True:
-        nombre = input("Ingrese nombre de usuario: ").lower()
+        nombre = input("\nIngrese nombre de usuario: ").lower()
         if usuarios == []:
             break
         for u in usuarios:
@@ -15,7 +15,7 @@ def ingresarUsuario():
         break
 
     while True:
-        sexo = input("Ingrese su sexo (M) ó (F): ").lower()
+        sexo = input("Ingrese sexo: ").lower()
         if sexo == "f":
             sexo = "F"
             break
@@ -63,7 +63,7 @@ def eliminarUsuario(nombre):
     if verificar == []:
         print("No se pudo eliminar usuario!")
     else:
-        print("Usuario eliminado!")
+        print("Usuario eliminado con éxito!")
 
 while True:
     try:
@@ -78,13 +78,13 @@ while True:
             case 1:
                 ingresarUsuario()
             case 2:
-                nombre = input("Ingrese usuario a buscar: ").lower()
+                nombre = input("\nIngrese usuario a buscar: ").lower()
                 buscarUsuario(nombre)
             case 3:
-                nombre = input("Ingrese usuario a buscar: ").lower()
+                nombre = input("\nIngrese usuario a buscar: ").lower()
                 eliminarUsuario(nombre)
             case 4:
-                print("Programa terminado...")
+                print("\nPrograma terminado...")
                 break
             case _:
                 print("Debe ingresar una opción válida!!")
